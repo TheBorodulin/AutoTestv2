@@ -9,7 +9,7 @@ import org.openqa.selenium.WebElement;
 import static constants.SuccessfulMessages.EXPECTED_SUCCESSFUL_ADD_TO_CART_MODAL_MESSAGE;
 
 public class HomepageSteps extends BaseSteps {
-    private Homepage homepage;
+     Homepage homepage;
 
     public HomepageSteps(WebDriver driver) {
         super(driver);
