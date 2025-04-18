@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class ProductPage extends BasePage {
-    private static final String SUCCESS_MESSAGE_TEXT = "Thank you for your review.";
+
     private final By writeReviewButton = By.xpath("//a[contains(text(), 'Write Your Review')]");
     private final By nameField = By.id("name");
     private final By emailField = By.id("email");
@@ -14,7 +14,7 @@ public class ProductPage extends BasePage {
     private final By successMessage = By.cssSelector("div.alert-success.alert");
 
     public ProductPage(WebDriver driver) {
-        super.driver = driver;
+        super(driver);
     }
 
     public WebElement getWriteReviewButton() {
@@ -37,12 +37,7 @@ public class ProductPage extends BasePage {
         return getClickableElement(submitButton);
     }
 
-    public boolean checkSuccessMessagePresence() {
-        try {
-            WebElement message = getVisibleElement(successMessage);
-            return message.getText().contains(SUCCESS_MESSAGE_TEXT);
-        } catch (org.openqa.selenium.NoSuchElementException e) {
-            return false;
-        }
+    public WebElement getSuccessMessageElement() {
+        return getVisibleElement(successMessage);
     }
 }
